@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techify | Smart Electronics Store</title>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="header-left">
+            <img src="img/logo.svg"Techify logo" class="logo"/>
+            <h1>Techify</h1>
+        </div>
+
+        <p class="promo-text">Free shipping on orders over 5000kr. 2-Year Warranty</p>
+
+        <form class="search-form" role="search">
+            <label for="search" class="visually-hidden">Search products</label>
+            <input type="search" id="search" placeholder="Search gadgets, laptops, phones..."/>
+        </form>
+
+        <nav aria-label="Primary navigation">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Deals</a>
+            <a href="#">Support</a>
+            <a href="#">Account</a>
+            <a href="#">Cart (0)</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Upgrade Your Tech. Upgrade Your Life.</h2>
+            <p>Discover the latest laptops, smartphones, accessories and smart devices.</p>
+            <a href="#" class="cta">Shop Latest Products</a>
+        </div>
+    </section>
+
+    <main id="main-content" class="layout">
+
+        <!--PRODUCT 1-->
+        <section class="products" aria-label="Product listings">
+
+            <article class="product-card">
+                <img src="img/ultraBook.png"High performance laptop"/>
+                <h3>UltraBook Pro 14</h3>
+                <p class="spec">Intel i7. 16GB RAM. 1TB SSD</p>
+                <p class="price">14000kr</p>
+                <button>Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="img/smartphone.png" alt="Latest smartphone"/>
+                <h3>Smart X Phone 13</h3>
+                <p class="spec">128GB. 5G. OLED Display</p>
+                <p class="price">9000kr</p>
+                <button>Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="img/headphone.png"Noise cancelling headphones"/>
+                <h3>NoiseBeat Headphones</h3>
+                <p class="spec">Active Noise Cnacel. 40hrs Battery</p>
+                <p class="price">5000kr</p>
+                <button>Add to Cart</button>
+            </article>
+
+            <article class="product-card">
+                <img src="img/smartwatch.png" alt="Smartwatch"/>
+                <h3>WatchPro X</h3>
+                <p class="spec">Heart Rate. GPS. Waterproof</p>
+                <p class="price">3000kr</p>
+                <button>Add to Cart</button>
+            </article>
+
+        </section>
+
+        <!--Filters-->
+        <aside class="filters">
+            <h2>Filter Products</h2>
+
+            <fieldset>
+                <legend>Category</legend>
+                <label><input type="checkbox">Laptop</label>
+                <label><input type="checkbox">Phones</label>
+                <label><input type="checkbox">Audio</label>
+                <label><input type="checkbox">Wearable</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Price</legend>
+                <label><input type="checkbox">Under 2000kr</label>
+                <label><input type="checkbox">2000kr - 8000kr</label>
+                <label><input type="checkbox">Above 8000kr</label>
+            </fieldset>
+
+            <button>Apply Filters</button>
+        </aside>
+
+    </main>
+
+    <!--TECH GUIDE-->
+    <section class="tech-guide">
+        <h2>Tech Buying Guide</h2>
+
+        <article>
+            <h3>Understanding Smartphone specs</h3>
+            <p>Look at battery life, camera quality, and display type. OLED screens provide better color and power efficiency.</p>
+        </article>
+
+        <article>
+            <h3>Headphones: Wired vs Wireless</h3>
+            <p>Wireless gives freedom. Wired provides zero latency. Choose based on your use case.</p>
+        </article>
+    </section>
+
+    <footer class="site-footer">
+
+        <section>
+            <h3>Shop</h3>
+            <ul>
+                <li><a href="#">Laptop</a></li>
+                <li><a href="#">Smartphones</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Deals</a></li>    
+            </ul>
+        </section>
+
+        <section>
+            <h3>Customer Support</h3>
+            <ul>
+                <li><a href="#">Order Tracking</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Warranty</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>About Techify</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms</a></li>
+            </ul>
+        </section>
+
+        <form class="newletter">
+            <h3>Subscript to Newsletter</h3>
+            <label for="email" class="visually-hidden">Email</label>
+            <input type="email" id="email" placeholder="techify@gmail.com" required/>
+            <button type="submit">Subscribe</button>
+        </form>
+
+        <p class="copyright">© 2026 Techify. All rights reserved.</p>
+
+
+    </footer>
+
+    
+</body>
+</html>
