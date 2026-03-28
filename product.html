@@ -5,9 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UltraBook Pro 14 | Techify</title>
 
-    
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
-    
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!--HEADER---->
+    <header class="site-header">
+        <div class="header-left">
+            <img src="img/logo.svg" alt="Techify logo" class="logo"/>
+            <h1>Techify</h1>
+        </div>
+
+        <p class="promo-text">Free shipping on orders over 5000kr. 2-Year Warranty</p>
+
+        <form class="search-form" role="search">
+            <label for="search" class="visually-hidden">Search products</label>
+            <input type="search" id="search" placeholder="Search gadgets, laptops, phones...."/>
+        </form>
+
+        <nav aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Deals</a>
+            <a href="#">Support</a>
+            <a href="#">Account</a>
+            <a href="#">Cart (0)</a>
+        </nav>
+    </header>
+
+    <!--PRODUCT DETAIL---->
+    <main id="main-content" class="layout" style="grid-template-columns: 1fr;"> 
+
+        <section class="product-detail" style="background:white;padding:2rem;border-radius:10px;display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+
+        <!--PRODUCT IMAGE---->
+        <div>
+            <img src="img/ultraBook.png" alt="UltraBook Pro 14 laptop">
+        </div>
+
+        <!---PRODUCT INFO----->
+        <div>
+            <h2>UltraBook Pro 14</h2>
+            <p class="spec">Intel i7. 16GB RAM. 1TB SSB. 14" Retina Display</p>
+            <p class="price">14000kr</p>
+
+            <p>
+                The UltraBook Pro 14 is built for professionals, gamers and creators who demand speed, portability and premium build quality. 
+                With ultra-fast SSD storage and long battery life, this tablet is designed to handle heavy workloads with ease.
+            </p>
+            <button id="detail-add-btn">Add to Cart</button>
+
+        </div>
+
+        </section>
+        
+        <!---Review----->
+        <sectoion class="tech-guide" style="margin-top: 2rem;">
+            <h2>Customer Reviews</h2>
+
+            <article>
+                <h3>★★★★★-Excellent Performance</h3>
+                <p>
+                    Boots in seconds and handles video editing like a dream.
+                    The battery easily lasts a full workday.
+                </p>
+            </article>
+
+            <article>
+                <h3>★★★★★-Premium Feel</h3>
+                <p>
+                    Lightweight, sleek design, and the screen quality is fantastic.
+                    Slightly pricey but worth it.
+                </p>
+            </article>
+
+            <article>
+                <h3>★★★★★-Perfect for Developers</h3>
+                <p>
+                    Compiles large projects quickly and stays cool even under load.
+                    Highly recommended for programmers.
+                </p>
+            </article>
+            </sectoion>
+
+    </main>
+
+
+    /*----PRODUCT CARD----*/
+    <article class="product-card" style="display: none;">
+        <img src="img/utraBook.png" alt="UltraBook Pro 14"/>
+        <h3>UltraBook Pro 14</h3>
+        <p class="spec">Intel i7. 16GB RAM. 1TB SSD</p>
+        <p class="price">14000kr</p>
+        <button>Add to Cart</button>
+
+    </article>
+
+    /*------FOOTER------*/
+    <footer class="site-footer">
+
+        <section>
+            <h3>Shop</h3>
+            <ul>
+                <li><a href="#">Laptop</a></li>
+                <li><a href="#">Smartphone</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Deal</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Customer Support</h3>
+            <ul>
+                <li><a href="#">Order Tracking</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Warranty</a></li>
+                <li><a href="#">Help Center</a></li>
+
+            </ul>
+        </section>
+
+        <section>
+            <h3>About Techify</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+            </ul>
+        </section>
+
+        <p class="copyright">© 2026 Techify. All rights reserved.</p>
+
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const realBtn = document.querySelector(".product-card button");
+            const detailedBtn = document.getElementById("detail-add-btn");
+
+            detailedBtn.addEventListener("click", () => {
+                realBtn.click();
+                detailBtn.textContent = realBtn.texContent;
+            });
+        });
+    </script>
+
 </body>
 </html>
+
+
+       
+
+
+
+
+
