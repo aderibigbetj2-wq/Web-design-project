@@ -230,6 +230,22 @@ drawer.innerHTML =`
 
             }, 5000);
 
+/* AUTO SLIDE SMART GUIDE*/
+const track = document.getElementById("guideTrack");
+const cards = document.querySelectorAll(".smart-card");
+
+let index = 0;
+
+
+function slideGuide() {
+    index = (index + 1) % cards.length;
+    track.style.transform = `translateX(-${index * 100}%`;
+}
+
+setInterval(slideGuide, 4000);
+
+
+
 
 
 

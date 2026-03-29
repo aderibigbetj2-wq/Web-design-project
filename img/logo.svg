@@ -1,10 +1,12 @@
-<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background rounded square -->
-  <rect x="0" y="0" width="128" height="128" rx="20" ry="20" fill="#007ACC"></rect>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Techify T -->
+  <rect x="16" y="16" width="96" height="20" rx="10" fill="#2563EB"></rect>
+  <rect x="54" y="16" width="20" height="80" rx="10" fill="#2563EB"></rect>
 
-  <!-- Minimal tech "T" symbol -->
-  <path d="M40 40 L88 40 L88 52 L68 52 L68 88 L60 88 L60 52 L40 52 Z" fill="white"></path>
+  <!-- Subtle ecommerce cart base -->
+  <rect x="36" y="90" width="56" height="8" rx="4" fill="#94A3B8"></rect>
 
-  <!-- Optional: subtle shadow / highlight -->
-  <circle cx="64" cy="64" r="60" fill="white" opacity="0.05"></circle>
+  <!-- Cart wheels -->
+  <circle cx="46" cy="108" r="8" fill="#94A3B8"></circle>
+  <circle cx="82" cy="108" r="8" fill="#94A3B8"></circle>
 </svg>

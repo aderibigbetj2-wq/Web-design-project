@@ -40,6 +40,22 @@ img {
     background: white;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.brand-name {
+    font-size: 28px;
+    margin: 0;
+}
+
 
 /* HERO */
 .hero {
@@ -164,10 +180,84 @@ nav a:hover::after {
 
 /* TECH GUIDE */
 .tech-guide {
-    padding: 2rem;
+    padding: 80px 40px;
+    text-align: center;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.tech-guide h2 {
+    font-size: 34px;
+    margin-bottom: 50px;
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+}
+
+.guide-card {
     background: white;
-    margin: 2rem;
-    border-radius: 10px;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: left;
+    transform: translateY(40px);
+    opacity: 0;
+    animation: cardReveal 0.8s ease forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guide-card:nth-child(1) { animation-delay: 0.2s; }
+.guide-card:nth-child(2) { animation-delay: 0.4s; }
+.guide-card:nth-child(3) { animation-delay: 0.6s; }
+
+.guide-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.25);
+}
+
+.guide-icon {
+    font-size: 36px;
+    margin-bottom: 18px;
+    transition: transform 0.4s ease;
+}
+
+.guide-card:hover .guide-icon {
+    transform: rotate(12deg) scale(1.2);
+}
+
+.guide-card h3 {
+    margin-bottom: 14px;
+}
+
+.guide-card ul {
+    padding-left: 18px;
+}
+
+.guide-card li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* ANIMATIONS */
+@keyframes cardReveal {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* FOOTER */
@@ -197,6 +287,120 @@ nav a:hover::after {
 .tech-guide { animation-delay: 0.8s; }
 .site-footer { animation-delay: 1s; }
 
+/*----AUTO SLIDING SMART GUIDE-----*/
+
+.guide-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.guide-track {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.smart-card {
+    min-width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+}
+
+.smart-card img {
+    width: 280px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.smart-content {
+    flex: 1;
+    text-align: left;
+}
+
+.smart-content h3 {
+    font-size: 28px;
+    margin-bottom: 18px;
+    color: #111827;
+}
+
+.smart-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 22px;
+}
+
+.smart-content li {
+    margin-bottom: 12px;
+    padding-left: 28px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #374151;
+}
+
+/*----CUSTOM CHECK ICON---*/
+.smart-content li::before {
+    content:"✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #0077cc;
+    font-weight: bold;
+}
+
+.smart-content strong {
+    color: #111827
+}
+
+/*---- CTA inside cards----*/
+.cta.small {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 22px;
+    border-radius: 22px;
+    background: #0077cc;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.cta.small:hover {
+    background: #005fa3;
+    transform: translateY(-3px);
+}
+
+
+@media (max-width: 900px) {
+    .smart-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px;
+    }
+
+    .smart-content {
+        text-align: center;
+    }
+
+    .smart-content li {
+        padding-left: 0;
+    }
+
+    .smart-content li::before {
+        display: none;
+    }
+
+    .smart-card img {
+        width: 180px;
+    }
+}
+
+
 @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
 }
@@ -206,6 +410,7 @@ nav a:hover::after {
 @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
 }
+
 
 
 
