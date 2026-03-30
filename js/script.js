@@ -76,8 +76,9 @@ drawer.innerHTML =`
 
   /*-----PRODUCTS-----*/
 
-  const productCards = qsa(".product-card");
+  const productCards = qsa(".products .product-card");
 
+  if (productCards.length) {
   productCards.forEach((card, index) =>{
     const id = index + 1;
     const title = card.querySelector("h3").textContent;
@@ -99,11 +100,13 @@ drawer.innerHTML =`
             cart.push({ id, title, price, img, qty: 1 });
             button.textContent = "Remove from Cart";
         }
+    
 
         saveCart();
         updateCartCount();
     });
   });
+}
 
   /*-------DRAWER RENDER------*/
 
@@ -239,10 +242,65 @@ let index = 0;
 
 function slideGuide() {
     index = (index + 1) % cards.length;
-    track.style.transform = `translateX(-${index * 100}%`;
+    track.style.transform = `translateX(-${index * 100}%)`;
 }
 
 setInterval(slideGuide, 4000);
+
+ /*-----PRODUCT PAGE----*/
+
+ document.addEventListener("DOMContentLoaded", () => {
+
+    const detail = document.querySelector(".product-detail");
+    if (!detail) return;
+
+    const productData = {
+    1: {
+        title: "UltraBook Pro 14",
+        price: 14000,
+        img: "img/ultraBook.png",
+        spec: 'Intel i7. 16GB RAM. 1TB SSD. 14" Retina Display',
+        desc: "The UltraBook Pro 14 is built for professionals, gamers and creators who demand speed and portability."
+    },
+    2: {
+        title: "Smart X Phone 13",
+        price: 9000,
+        img: "img/smartphone.png",
+        spec: "128GB. 5G. OLED Display",
+        desc: "A flagship smartphone with stunning OLED display and lighting fast 5G performance."
+    },
+    3: {
+        title: "NoiseBeat Headphone",
+        price: 5000,
+        img: "img/headphone.png",
+        spec: "Active Noise Cancel. 40hrs Battery",
+        desc: "Experience immersive sound with powerful active noise cancellatio and long battery life."
+    },
+    4: {
+        title: "WatchPro X",
+        price: 3000,
+        img: "img/smartwatch.png",
+        spec: "Heart Rate. GPS. Waterproof",
+        desc: "Your fitness and lifestyle companion with GPS tracking and waterproof design."
+    }
+};
+
+const id = new URLSearchParams(window.location.search).get("id");
+if (!productData[id]) return;
+
+const p = productData[id];
+
+    const img = detail.querySelector("img");
+    const title = detail.querySelector("h2");
+    const desc = detail.querySelector(".desc");
+    
+
+    img.src =p.img;
+    title.textContent = p.title;
+    price.textContent = p.price + "kr";
+    desc.textContent = p.desc;
+
+});
 
 
 
