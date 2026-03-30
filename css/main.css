@@ -65,9 +65,13 @@ img {
 
 /* HERO */
 .hero {
+  height: 80vh;
+  min-height: 500px;
   background:
     linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)),
-    url("../img/laptop.jpg") center/cover no-repeat;
+    url("../img/earbud.png") center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
   color: white;
   padding: 6rem 2rem;
 }
