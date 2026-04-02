@@ -1,253 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Techify | Smart Electronics Store</title>
-    <script src="js/script.js" defer></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Techify</title>
     <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
     <header class="site-header">
-        <div class="header-left">
-            <img src="img/logo.svg" alt="Techify logo" class="logo"/>
-            <h1 class="brand-name">Techify</h1>
+        <div class="logo-wrap">
+            <img src="img/logo.svg" class="logo" alt="Techify logo">
+            <h1>Techify</h1>
         </div>
 
-        <p class="promo-text">Free shipping on orders over 5000kr. 2-Year Warranty</p>
+       
+        <input type="search" id="search" placeholder="Search gadgets, laptops, phones...">
+       
 
-        <form class="search-form" role="search">
-            <label for="search" class="visually-hidden">Search products</label>
-            <input type="search" id="search" placeholder="Search gadgets, laptops, phones..."/>
-        </form>
-
-        <nav aria-label="Primary navigation">
-            <a href="#">Home</a>
+        <nav>
+            <a href="index.html">Home</a>
             <a href="#">Shop</a>
             <a href="#">Deals</a>
             <a href="#">Support</a>
             <a href="#">Account</a>
-            <a href="#">Cart (0)</a>
+            <a href="cart.html" id="cartLink">Cart (0)</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Upgrade Your Tech. Upgrade Your Life.</h2>
-            <p>Discover the latest laptops, smartphones, accessories and smart devices.</p>
-            <a href="#" class="cta">Shop Latest Products</a>
-        </div>
-    </section>
 
-    <main id="main-content" class="layout">
+    <main class="container">
+    
+      <aside class="filters">
+        <fieldset>
+          <legend>Filters</legend>
+          <label><input type="checkbox" name="category" value="laptop"> Laptops</label>
+          <label><input type="checkbox" name="category" value="phones"> Phones</label>
+          <label><input type="checkbox" name="category" value="audio"> Audio</label>
+          <label><input type="checkbox" name="category" value="wearable">Wearable</label>
+        </fieldset>
 
-        <!--PRODUCT 1-->
-        <section class="products" aria-label="Product listings">
+        <fieldset>
+          <legend>Price</legend>
+          <label><input type="checkbox" name="price" value="low"> Under 2000kr</label>
+          <label><input type="checkbox" name="price" value="mid">2000kr - 8000kr</label>
+          <label><input type="checkbox" name="price" value="high">Above 8000kr</label>
+        </fieldset>
 
-            <article class="product-card">
-                <a href="product.html?id=1">
-                <img src="img/ultraBook.png " alt="High perfomance laptop"/>
-                </a>
-                
-                <h3>
-                   <a href="product.html?id=1">UltraBook Pro 14</a>
-                </h3>
+        <button id="applyFilters">Apply Filters</button>
+      </aside>
 
-                <p class="spec">Intel i7. 16GB RAM. 1TB SSD</p>
-                <p class="price">14000kr</p>
-                <button>Add to Cart</button>
-            </article>
+      <section class="products">
 
-            <!---PRODUCT 2-->
+        <article class="product-card" data-id="1">
+            <a href="product.html?id=1">
+                <img src="img/ultraBook.png" alt="UltraBook Pro 14">
+                <h3>UltraBook Pro 14</h3>
+            </a>
+            <p class="price">14000kr</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </article>
 
-            <article class="product-card">
-                <a href="product.html?id=2">
-                <img src="img/smartphone.png" alt="Latest smartphone"/>
-                </a>
+        <article class="product-card" data-id="2">
+            <a href="product.html?id=2">
+                <img src="img/smartphone.png" alt="Smart X Phone 13">
+                <h3>Smart X Phone 13</h3>
+            </a>
+            <p class="price">9000kr</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </article>
 
-                <h3>
-                     <a href="product.html?id=2">Smart X Phone 13</a>
-                    </h3>
+        <article class="product-card" data-id="3">
+            <a href="product.html?id=3">
+                <img src="img/headphone.png" alt="NoiseBeat Headphone">
+                <h3>NoiseBeat Headphone</h3>
+            </a>
+            <p class="price">5000kr</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </article>
 
-                <p class="spec">128GB. 5G. OLED Display</p>
-                <p class="price">9000kr</p>
-                <button>Add to Cart</button>
-            </article>
+        <article class="product-card" data-id="4">
+            <a href="product.html?id=4">
+                <img src="img/smartwatch.png" alt="WatchPro X">
+                <h3>WatchPro X</h3>
+            </a>
+            <p class="price">3000kr</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </article>
 
-            <!--PRODUCT 3-->
 
-            <article class="product-card">
-                <a href="product.html?id=3">
-                <img src="img/headphone.png" alt="Noise cancelling headphones"/>
-                </a>
-
-                <h3>
-                    <a href="product.html?id=3">NoiseBeat Headphone</a>   
-                </h3>
-                <p class="spec">Active Noise Cnacel. 40hrs Battery</p>
-                <p class="price">5000kr</p>
-                <button>Add to Cart</button>
-            </article>
-
-            <!--PRODUCT 4-->
-
-            <article class="product-card">
-                <a href="product.html?id=4">
-                <img src="img/smartwatch.png" alt="Smartwatch"/>
-                </a>
-
-                <h3>
-                    <a href="product.html?id=4">WatchPro X</a>
-                </h3>
-                <p class="spec">Heart Rate. GPS. Waterproof</p>
-                <p class="price">3000kr</p>
-                <button>Add to Cart</button>
-            </article>
-
-        </section>
-
-        <!--Filters-->
-        <aside class="filters">
-            <h2>Filter Products</h2>
-
-            <fieldset>
-                <legend>Category</legend>
-                <label><input type="checkbox">Laptop</label>
-                <label><input type="checkbox">Phones</label>
-                <label><input type="checkbox">Audio</label>
-                <label><input type="checkbox">Wearable</label>
-            </fieldset>
-
-            <fieldset>
-                <legend>Price</legend>
-                <label><input type="checkbox">Under 2000kr</label>
-                <label><input type="checkbox">2000kr - 8000kr</label>
-                <label><input type="checkbox">Above 8000kr</label>
-            </fieldset>
-
-            <button>Apply Filters</button>
-        </aside>
-
+      </section>
     </main>
+<!--SIDE CART-->
 
-    <!--TECH GUIDE-->
-    <section class="tech-guide">
-        <h2> Smart Buying Guide</h2>
+<div id="sideCart" class="side-cart">
+    <div class="side-cart-header">
+        <h2>Your Cart</h2>
+        <button id="closeCart" aria-label="Close cart">X</button>
+    </div>
 
-        <div class="guide-slider">
-            <div class="guide-track" id="guideTrack">
+    <div id="sideCartItems"></div>
 
-            <!--Earbud--->
+    <div class="side-cart-footer">
+        <h3 id="sideCartTotal">Total: 0kr</h3>
+        <button id="goToCart">Go to Cart</button>
+    </div>
+</div>
 
-            <article class="smart-card">
-                <img src="img/earbud.png" alt="Wireless earbuds"/>
-                <div class="smart-content">
-                    <h3>Choosing the right Earbud</h3>
-                <ul>
-                    <li><strong>Battery:</strong> 6-8 hrs per charge</li>
-                    <li><strong>ANC:</strong> Blocks outside noise</li>
-                    <li><strong>Mic:</strong> Clear calls</li>
-                    <li><strong>Fit:</strong> Comfortable tips</li>
-                    <li><strong>Water resistance:</strong> Workout safe</li>
-                </ul>
-             </div>
-            </article>
-
-            <!---Laptop---->
-            <article class="smart-card">
-                <img src="img/laptop.png" alt="Laptop"/>
-                <div class="smart-content">
-                <h3>Buying a Laptop Smartly</h3>
-                <ul>
-                    <li><strong>RAM:</strong> 8GB minimum</li>
-                    <li><strong>SSD:</strong> For speed</li>
-                    <li><strong>Processor</strong> i5 / Ryzen 5+</li>
-                    <li><strong>Weight:</strong> Under 1.5kg</li>
-                    <li><strong>Battery:</strong> 6+ hrs</li>
-                </ul>
-             </div>
-            </article>
-
-                <!---Game---->
-            <article class="smart-card">
-                <img src="img/Xgame.png" alt="Game"/>
-                <div class="smart-content">
-                <h3>Latest Game</h3>
-                <ul>
-                    <li><strong>RAM:</strong> 16GB</li>
-                    <li><strong>Optical drive:</strong> Blu-ray Disc</li>
-                    <li><strong>Processor</strong> AMD Zan 2</li>
-                    <li><strong>Weight:</strong> Under 1kg</li>
-                    <li><strong>Battery:</strong> 5yrs garranty</li>
-                </ul>
-             </div>
-            </article>
-
-            <!---SPEAKER---->
-            <article class="smart-card">
-                <img src="img/speaker.png" alt="Bluetooth speaker"/>
-                <div class="smart-content">
-                <h3>Picking a Good Speaker</h3>
-                <ul>
-                    <li><strong>Wattage:</strong> Room filling sound</li>
-                    <li><strong>Bass radiator:</strong> Deep bass</li>
-                    <li><strong>Battery:</strong> 10+ hours</li>
-                    <li><strong>Bluetooth range:</strong> Across room</li>
-                    <li><strong>Waterproof:</strong> Outdoor safe</li>
-                </ul>
-            </div>
-            </article>
-         </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-
-        <section>
-            <h3>Shop</h3>
-            <ul>
-                <li><a href="#">Laptop</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Accessories</a></li>
-                <li><a href="#">Deals</a></li>    
-            </ul>
-        </section>
-
-        <section>
-            <h3>Customer Support</h3>
-            <ul>
-                <li><a href="#">Order Tracking</a></li>
-                <li><a href="#">Returns</a></li>
-                <li><a href="#">Warranty</a></li>
-                <li><a href="#">Help Center</a></li>
-            </ul>
-        </section>
-
-        <section>
-            <h3>About Techify</h3>
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms</a></li>
-            </ul>
-        </section>
-
-        <form class="newletter">
-            <h3>Subscript to Newsletter</h3>
-            <label for="email" class="visually-hidden">Email</label>
-            <input type="email" id="email" placeholder="techify@gmail.com" required/>
-            <button type="submit">Subscribe</button>
-        </form>
-
-        <p class="copyright">© 2026 Techify. All rights reserved.</p>
-
-
-    </footer>
-
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
     
 </body>
 </html>
