@@ -38,7 +38,7 @@ const PRODUCTS = [
         description: "Enjoy immersive sound with advanced ANC and long lasting comfort."
     },
 
-    { id:4, 
+    { id: 4, 
         name: "WatchPro X", 
         price: 3000, 
         image: "img/smartwatch.png",
@@ -48,5 +48,42 @@ const PRODUCTS = [
         overview: "Smart fitness tracking watch.",
         features: ["GPS","Waterproof", "Heart Rate Monitor"],
         description: "Track your health and workouts with precision and style."
+    },
+
+    {
+        id: 5,
+        name: "XGAME console",
+        price: 7000,
+        category: "gaming",
+        image: "img/image",
+    },
+    { 
+        id: 6,
+        name: "Boom Speaker",
+        price: 25000,
+        category: "audio",
+        image: "img/speaker.png"
+    }, 
+    {
+        id: 7,
+        name: "AirBeat Earbuds",
+        price: 1800,
+        category: "audio",
+        image: "img/earbuds.png"
+    },
+    {
+        id: 8,
+        name: "Pro Laptop X",
+        price: 160000,
+        category: "laptop",
+        image: "img/laptop.png"
     }
+
+
+
+
+
+
+
+
 ];

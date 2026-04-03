@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const qsa = s => document.querySelectorAll(s);
 
     /* CORE */
-    const formatPrice = p => p.toLocalString() + "kr";
+    const formatPrice = p => p.toLocaleString() + "kr";
     
     function save() {
         localStorage.setItem(CART_KEY, JSON.stringify(cart));
@@ -36,15 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     /* TOAST */
-    function toast(msg) {
-        const t = document.createElement("div");
-        t.className = "toast";
-        t.textContent = msg;
-        document.body.appendChild(t);
+   function showToast(message) {
+    const toast = document.querySelector('.toast');
+    if (!toast) return;
 
-        setTimeout(() => t.classList.add("show"), 10);
-        setTimeout(() => t.remove(), 2000);
-    }
+    toast.textContent = message;
+
+    toast.classList.add('show');
+
+    toast.animate([
+        { transform: 'translateY(20px)' },
+        { transform: 'translateY(0)' }
+    ], { duration: 300 });
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+   }
 
 /* ADD TO CART */
     function addToCart(product) {
@@ -58,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         save();
         updateNav();
         renderSideCart();
-        toast(`${product.name} added ✅`);
+        showToast(`${product.name} added ✅`);
         openSideCart();
     }
 
@@ -78,8 +86,12 @@ function closeSideCart(){
 
 qs("#closeCart")?.addEventListener("click", closeSideCart);
 
-qs("#goToCart")?.addEventListener("click", () => {
-    window.location.href = "cart.html";
+qs("#continueShopping")?.addEventListener("click", () => {
+    closeSideCart();
+});
+
+qs("#checkoutNow")?.addEventListener("click", () => {
+    window.location.href = "cart.html?step=payment";
 });
 
 function renderSideCart() {
@@ -92,15 +104,41 @@ function renderSideCart() {
     }
 
     sideCartItems.innerHTML = cart.map(item => `
-        <div class="side-item">
-            <span>${item.name} (${item.qty})</span>
-            <span>${formatPrice(item.price * item.qty)}kr</span>
+        <div class="side-cart-item">
+          <img src="${item.image}" class="side-img">
+
+          <div class="side-info">
+             <h4>${item.name}</h4>
+             <p>${formatPrice(item.price)}</p>
+
+             <div class="qty">
+                <button class="minus" data-id="${item.id}">-</button>
+                <span>${item.qty}</span>
+                <button class="plus" data-id="${item.id}">+</button>
+            </div>
+          </div>
+
+          <button class="remove" data-id="${item.id}">X</button>
         </div>
         `).join("");
 
 
         sideCartTotal.textContent = `Total: ${formatPrice(cartTotal())}`;
-}
+
+/* ATTACH EVENTS */
+qsa("#sideCartItems .plus").forEach(b =>
+    b.onclick = () => changeQty(parseInt(b.dataset.id), 1)
+);
+
+qsa("#sideCartItems .minus").forEach(b =>
+    b.onclick = () => changeQty(parseInt(b.dataset.id), -1)
+);
+
+qsa("#sideCartItems .remove").forEach(b =>
+    b.onclick = () => removeFromCart(parseInt(b.dataset.id))
+);
+}        
+
 
 /* CHANGE QTY */
     function changeQty(id, delta) {
@@ -140,7 +178,6 @@ function renderSideCart() {
             addToCart(product);
         });
     });
-
     
     /* PRODUCT PAGE */
     const productSection = qs("#productSection");
@@ -157,7 +194,7 @@ function renderSideCart() {
                 <img src="${p.image}">
                 <h2>${p.name}</h2>
                 <p>${p.overview}</p>
-                <p class="price">${p.price}kr</p>
+                <p class="price">${p.price} kr</p>
                 <ul>${p.features.map(f => `<li>${f}</li>`).join("")}</ul>
                 <button id="addBtn">Add to Cart</button>
                 </div>
@@ -168,7 +205,7 @@ function renderSideCart() {
     }
 
     /* FILTERS */
-    qs(".#applyfilters")?.addEventListener("click", () => {
+    qs("#applyFilters")?.addEventListener("click", () => {
         const checked = [...qsa(".filters input:checked")].map(i => i.value);
         
         qsa(".product-card").forEach(card => {
@@ -183,8 +220,29 @@ function renderSideCart() {
         });
     });
 
+    /* SLIDER */
+    const track = document.querySelector('.slider-track');
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+
+    if (track && nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -300, behavior: 'smooth'});
+        });
+    }
+
 
        /*  CART PAGE  */
+       function openCart () {
+        document.getElementById('sideCart').classList.add('open');
+        document.body.classList.add('cart-open');
+       }
+
+       function closeCart () {
+        document.getElementById('sideCart').classList.remove('open');
+        document.body.classList.remove('cart-open');
+       }
+
        function renderCartPage() {
            const cartSection = qs("#cartSection");
            if(!cartSection) return;
@@ -204,7 +262,7 @@ function renderSideCart() {
                  <div class="qty">
                      <button class="minus" data-id="${item.id}">-</button>
                      <span>${item.qty}</span>
-                     <button class="plus" data-id="${item-id}">+</button>
+                     <button class="plus" data-id="${item.id}">+</button>
                  </div>
 
                  <p>${formatPrice(item.price * item.qty)}</p>
@@ -213,10 +271,29 @@ function renderSideCart() {
             </div>
         `).join("")}
 
-        <div class="cart-total">
-            <h2>Total: ${formatPrice(cartTotal())}</h2>
-            <button class="checkout">Checkout</button>
+        <div class="checkout-layout">
+
+          <div class="cart-summary">
+            <h2>Order Summary</h2>
+            <p>Total: <strong>${formatPrice(cartTotal())}</strong></p>
+
+            <button class="pay-now">Pay Now</button>
         </div>
+
+        <form class="payment-form">
+          <h2>Payment Details</h2>
+
+          <input type="text" placeholder="Full Name" required>
+          <input type="text" placeholder="Card Number" required>
+          <input type="text" placeholder="MM/YY" required>
+          <input type="text" placeholder="CVV" required>
+
+          <button type="submit">Complete Payment</button>
+          </form>
+
+
+        </div>
+
     `;
 
     qsa(".plus").forEach(b =>
@@ -231,20 +308,19 @@ function renderSideCart() {
         b.onclick = () => removeFromCart(parseInt(b.dataset.id))
     );
 
-    qs(".checkout").onclick = () => {
-        toast("Order placed 🎉");
+    qs(".pay-now")?.addEventListener("click", () => {
+        showToast("Order placed 🎉");
         cart = [];
         save();
         renderCartPage();
         renderSideCart();
         updateNav();
-     };
+     });
  }
 
  renderCartPage();
  renderSideCart();
  updateNav();
-
 });
 
 
