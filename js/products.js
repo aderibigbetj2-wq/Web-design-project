@@ -77,13 +77,14 @@ const PRODUCTS = [
         price: 160000,
         category: "laptop",
         image: "img/laptop.png"
-    }
-
-
-
-
-
-
+    },
+    {
+        id: 9,
+        name: "Pro Game M2",
+        price: 12000,
+        category: "PC",
+        image: "img/computer Monitor.png"
+    },
 
 
 ];

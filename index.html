@@ -19,7 +19,7 @@
        </div>
        
 
-        <nav>
+        <nav aria aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="#">Shop</a>
             <a href="#">Deals</a>
@@ -33,14 +33,25 @@
     <main>
 
         <!--HERO-->
-        <section class="hero">
-            <h2>Latest Tech Deals</h2>
-            <p>Discover gaming, audio & productivity gear</p>
+        <section class="hero" aria-label="Hero banner">
+            <div class="hero-content">
+                <span class="hero-tag">New Arrivals</span>
+            <h1>Upgrade Your Tech Setup</h1>
+            <p>High performance gear for work, gaming and everyday life.</p>
+
+           <div class="hero-actions">
+             <a href="#" class="btn-primary">Shop Now</a>
+             <a href="#" class="btn-secondary">Explore</a>
+           </div>
+          </div>
         </section>
 
         <!--SLIDER-->
         <section class="product-slider" aria-label="Featured products">
+           <div class="section-header">
             <h2>Featured</h2>
+            <a href="#">view all</a>
+          </div>
         </section>
 
         <div class="slider-wrapper">
@@ -71,6 +82,12 @@
                     <img src="img/laptop.png" alt="Pro Laptop X">
                     <h3>Pro Laptop X</h3>
                     <p class="price">160000kr</p>
+                </article>
+
+                <article class="product-card">
+                    <img src="img/computer Monitor.png" alt="Pro Game M2">
+                    <h3>Pro Game M2</h3>
+                    <p class="price">12000kr</p>
                 </article>
 
             </div>
@@ -136,6 +153,15 @@
                 <h3>WatchPro X</h3>
             </a>
             <p class="price">3000kr</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </article>
+
+        <article class="product-card" data-id="5">
+            <a href="product.html?id=5">
+                <img src="img/gaming pc.png" alt="Game Series 1">
+                <h3>Game Series 1</h3>
+            </a>
+            <p class="price">10000kr</p>
             <button class="add-to-cart">Add to Cart</button>
         </article>
 
