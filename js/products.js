@@ -85,6 +85,13 @@ const PRODUCTS = [
         category: "PC",
         image: "img/computer Monitor.png"
     },
+    {
+        id: 10,
+        name: "Game Series 1",
+        price: 10000,
+        category: "CPU", 
+        image: "img/gaming pc.png"
+    },
 
 
 ];

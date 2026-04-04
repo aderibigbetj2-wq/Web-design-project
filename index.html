@@ -100,23 +100,49 @@
       <section class="container">
 
       <aside class="filters" aria-label="Product filters">
-        <fieldset>
-          <legend>Filters</legend>
-          <label><input type="checkbox" name="category" value="laptop"> Laptops</label>
-          <label><input type="checkbox" name="category" value="phones"> Phones</label>
-          <label><input type="checkbox" name="category" value="audio"> Audio</label>
-          <label><input type="checkbox" name="category" value="wearable">Wearable</label>
-        </fieldset>
 
-        <fieldset>
-          <legend>Price</legend>
-          <label><input type="checkbox" name="price" value="low"> Under 2000kr</label>
-          <label><input type="checkbox" name="price" value="mid">2000kr - 8000kr</label>
-          <label><input type="checkbox" name="price" value="high">Above 8000kr</label>
-        </fieldset>
+        <header class="filters" aria-label="Product filters">
+            <h2>Filter</h2>
+            <button type="button" class="clear-filters">Clear</button>
+        </header>
 
-        <button id="applyFilters">Apply Filters</button>
+        <form class="filters-form">
+
+            <fieldset class="filters-group">
+                <legend>Category</legend>
+
+                <label class="filter-option">
+                    <input type="checkbox" name="category" value="laptop">
+                    <span>Laptops</span>
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" name="category" value="phones">
+                    <span>Phones</span>
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" name="category" value="wearable">
+                    <span>Wearables</span>
+                </label>
+
+                <label class="filter-option">
+                    <input type="checkbox" name="category" value="game">
+                    <span>Games</span>
+                </label>
+            </fieldset>
+
+            <button id="applyFilters" type="button" class="apply-btn">
+                Apply Filters
+            </button>
+        </form>
+
       </aside>
+        
+
+       
+
+        
 
       <section class="products">
 
