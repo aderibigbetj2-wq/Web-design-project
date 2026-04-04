@@ -224,12 +224,39 @@ qsa("#sideCartItems .remove").forEach(b =>
     const track = document.querySelector('.slider-track');
     const nextBtn = document.querySelector('.next');
     const prevBtn = document.querySelector('.prev');
+    const slides = document.querySelectorAll('.slide'); 
 
-    if (track && nextBtn) {
+    if (track && nextBtn && prevBtn) {
+
         nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: 300, behavior: 'smooth'});
+        });
+
+        prevBtn.addEventListener('click', () => {
             track.scrollBy({ left: -300, behavior: 'smooth'});
         });
-    }
+
+    function updateActiveSlide() {
+        const center = track.scrollLeft + track.offsetWidth / 2;
+    
+
+    slides.forEach(slide => {
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+
+        if (Math.abs(center - slideCenter) < slide.offsetWidth / 2) {
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
+    });
+}
+
+track.addEventListener('scroll', () => {
+    requestAnimationFrame(updateActiveSlide);
+});
+
+updateActiveSlide();
+}
 
 
        /*  CART PAGE  */

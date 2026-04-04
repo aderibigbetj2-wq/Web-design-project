@@ -34,6 +34,11 @@ nav a {
 }
 
 /* SEARCH */
+.search-container {
+  max-width: 400px;
+  margin: 2px auto;
+}
+
 #search {
   padding: 8px 12px;
   border-radius: 20px;
@@ -73,6 +78,12 @@ nav a {
   padding: 2rem;
 }
 
+.product-slider .product-card {
+  min-width: 220px;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 .slider-wrapper {
   position: relative;
   display: flex;
@@ -85,6 +96,18 @@ nav a {
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 1rem 0;
+
+  scroll-snap-type: x mandatory;
+}
+
+.slider-track .product-card {
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+.slider-track .product-card.active {
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 /* HIDE SCROLLBAR */
@@ -425,6 +448,97 @@ body{
 /* BETTER TRANSTITIONS */
 * {
   transition: all 0.2s ease-in-out;
+}
+
+/* FOOTERS */
+.footer {
+  background: #0f1115;
+  color: #ccc;
+  padding: 60px 20px 30px;
+  margin-top: 60px;
+}
+
+/* GRID */
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.footer-col {
+  min-width: 180px;
+  flex: 1;
+}
+
+/* TITLE */
+.footer-col h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* LINK */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.footer-col a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* BOTTOM */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 13px;
+  color: #888;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: #888;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-copy {
+  opacity: 0.6;
 }
 
 /* RESPONSIVE */
