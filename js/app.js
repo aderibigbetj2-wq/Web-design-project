@@ -321,16 +321,16 @@ qsa("#sideCartItems .remove").forEach(b =>
     const track = document.querySelector('.slider-track');
     const nextBtn = document.querySelector('.next');
     const prevBtn = document.querySelector('.prev');
-    const slides = document.querySelectorAll('.slide'); 
+    const slides = document.querySelectorAll('.slider-track .product-card'); 
 
     if (track && nextBtn && prevBtn) {
 
         nextBtn.addEventListener('click', () => {
-            track.scrollBy({ left: 300, behavior: 'smooth'});
+            track.scrollBy({ left: 260, behavior: 'smooth'});
         });
 
         prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -300, behavior: 'smooth'});
+            track.scrollBy({ left: -260, behavior: 'smooth'});
         });
 
     function updateActiveSlide() {
@@ -353,6 +353,30 @@ track.addEventListener('scroll', () => {
 });
 
 updateActiveSlide();
+
+let autoSlide;
+
+function startAutoSlide() {
+    autoSlide = setInterval(() => {
+        track.scrollBy({ left: 260, behavior: 'smooth' });
+
+        if (track.scrollLeft + track.offsetWidth >= track.scrollWidth -10) {
+            setTimeout(() => {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            }, 500);
+        }
+    }, 3000);
+}
+
+function stopAutoSlide() {
+    clearInterval(autoSlide);
+}
+
+startAutoSlide();
+
+track.addEventListener("mouseenter", stopAutoSlide);
+track.addEventListener("mouseleave", startAutoSlide);
+
 }
 
 
