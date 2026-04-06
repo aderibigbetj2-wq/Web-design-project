@@ -149,12 +149,6 @@ nav a {
   background: #333;
 }
 
-
-
-
-
-
-
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
@@ -759,6 +753,143 @@ body{
   width: 100%;
  }
 }
+
+/* PRODUCT REVIEW SYSTEM */
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.product-top {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.product-top img {
+  width: 300px;
+  border-radius: 12px;
+  background: white;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.rating {
+  color: #f5a623;
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* FEATURES */
+.product-features {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+/* REVIEWS */
+.reviews {
+  background: #fff;
+}
+
+/* PRODUCT META */
+.product-meta {
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
+
+.stock {
+  color: green;
+}
+
+.stock.out {
+  color: red;
+}
+
+.delivery {
+  color: #555;
+}
+
+/* TRUST BADGES */
+.trust-badges {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.trust-badges div {
+  background: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+/* WHY BUY */
+.why-buy {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.why-item {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.why-item h4 {
+  margin-bottom: 8px;
+}
+
+/* PREMIUM PAGE */
+.product-detail {
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 20px;
+
+}
+
+/*--SPLIT LAYOUT--*/
+.product-top {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/*--LEFT SIDE--*/
+.product-main {
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

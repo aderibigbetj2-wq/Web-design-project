@@ -191,15 +191,112 @@ qsa("#sideCartItems .remove").forEach(b =>
         } else {
             productSection.innerHTML = `
               <div class="product-detail">
-                <img src="${p.image}">
-                <h2>${p.name}</h2>
-                <p>${p.overview}</p>
-                <p class="price">${p.price} kr</p>
-                <ul>${p.features.map(f => `<li>${f}</li>`).join("")}</ul>
-                <button id="addBtn">Add to Cart</button>
-                </div>
-            `;
 
+              <div class="product-top">
+              
+              <!--LEFT SIDE-->
+              <div class="product-main">
+
+                <img src="${p.image}" alt="${p.name}">
+
+                <div class="product-info">
+                  <h2>${p.name}</h2>
+
+                  <div class="rating">
+                    ${"★".repeat(Math.floor(p.rating || 4))}
+                    <span>${p.rating || 4}.0</spam>
+                  </div>
+
+                  <p class="price">${p.price} kr</p>
+
+                  <p class="overview">${p.overview}</p>
+
+                  <div class="trust-badges">
+                    <div>🚚 Free Shipping over 5000kr</div>
+                    <div>↩️ 30-Day Easy Returns</div>
+                    <div>🛡️ 2-Year Warranty</div>
+                  </div>
+
+                 </div>
+                </div>
+
+                <!--RIGHT SIDE-->
+                <div class="product-side">
+                  <div class="buy-box">
+
+                   <h3>${p.price} kr</h3>
+
+                   <p class="stock ${p.stock === 0 ? "out" : ""}">
+                      ${p.stock > 0 ? `In stock (${p.stock})` : "Out of stock"}
+                    </p>
+
+                    <button id="addBtn">Add to Cart</button>
+
+                  <!--MINI TRUST-->  
+
+                  <div class="mini-trust">
+                    <p>🔒 Secure payment (SSL)</p>
+                    <p>⚡ Ships within 24hrs</p>
+                    <p>📦 Live order tracking</p>
+                  </div>
+
+              </div>
+             </div>
+
+              <div class="product-features">
+                <h3>Key Features</h3>
+                <ul>
+                  ${p.features?.map(f => `<li>✔${f}</li>`).join("") || ""}
+                </ul>
+              </div>
+
+              <div class="review-list">
+                <div class="review-card">
+                  <strong>Alex</strong>
+                  <div class="stars">★★★★★</div>
+                  <p>Great product, very fast and reliable.</p>
+                </div>
+              </div>
+
+              <form class="review-form">
+                <h4>Write a review</h4>
+                <input type="text" placeholder="Your name" required>
+                <select required>
+                  <option value="">Rating</option>
+                  <option>5</option>
+                  <option>4</option>
+                  <option>3</option>
+                  <option>2</option>
+                  <option>1</option>
+                </select>
+                <textarea placeholder="Your review..." required></textarea>
+                <button type="submit">Submit Review</button>
+              </form>
+
+             </div>
+
+            </div>
+
+            <!--WHY BUY-->
+            <div class="why-buy">
+              <div class="why-item">
+              <h4>⚡ Fast Delivery</h4>
+              <p>Delivered in 1-3 days across sweden.</p>
+            </div>
+            
+            <div class="why-item">
+              <h4>🎯 Premium Quality</h4>
+              <p>Carefully selected tech products you can trust.</p>
+            </div>
+
+            <div class="why-item">
+             <h4>💬 Real Support</h4>
+             <p>24/7 customer support for all your needs.</p>
+            </div>
+           </div>
+          `;
+
+              
          qs("#addBtn").onclick = () => addToCart(p);
         }
     }
@@ -348,6 +445,28 @@ updateActiveSlide();
  renderCartPage();
  renderSideCart();
  updateNav();
+
+ document.addEventListener("submit", e => {
+    if (e.target.classList.contains("review-form")) {
+        e.preventDefault();
+
+        const name = e.target.querySelector("input").value;
+        const rating = e.target.querySelector("select").value;
+        const text = e.target.querySelector("textarea").value;
+
+        const list = document.querySelector(".review-list");
+
+        list.innerHTML += `
+          <div class="review-card">
+            <strong>${name}</strong>
+            <div class="stars">${"★".repeat(rating)}</div>
+            <p>${text}</p>
+          </div>
+        `;
+
+        e.target.reset();
+    }
+ })
 });
 
 
