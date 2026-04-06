@@ -231,7 +231,6 @@ nav a {
   transition: all 0.25s ease;
 }
 
-
 .product-card:hover::after {
   opacity: 1;
 }

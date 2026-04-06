@@ -17,7 +17,7 @@ const PRODUCTS = [
         name: "Smart X Phone 13", 
         price: 9000, 
         image: "img/smartphone.png",
-        category: "phone",
+        category: "phones",
         stock: 10,
         rating: 4.5,
         overview: "OLED display with 5G.",
@@ -55,7 +55,7 @@ const PRODUCTS = [
         name: "Game Series 1",
         price: 10000,
         image: "img/gaming pc.png",
-        category: "gaming",
+        category: "game",
         stock: 10,
         rating: 4.9,
         overview: "High performance gaming desktop built for competitive and immersive gameplay.",
@@ -68,24 +68,24 @@ const PRODUCTS = [
         ],
         description: "Dominate every game with ultra-fast performance and stunning visuals. Game series 1 engineered for gamers who demand speed, power, and reliability-perfect for AAA titles, streaming, and multitasking without comprise."
     },
-    { 
-        id: 11,
-        name: "Boom Speaker",
-        price: 25000,
-        category: "audio",
-        image: "img/speaker.png",
-        stock: 15,
-        rating: 4.6,
-        overview: "Powerful wireless speaker with deep bass and crystal clear sound.",
+    {
+        id: 6,
+        name: "Meta Quest 3S",
+        price: 6500,
+        category: "wearable",
+        image: "img/meta quest 3s.png",
+        stock: 14,
+        rating: 4.7,
+        overview: "Next-gen mixed reality headset for immersive gaming and experiences.",
         features: [
-            "Bluetooth 5.0",
-            "360° Surround Sound",
-            "12-Hour Battery Life",
-            "Portable Design"
+            "Mixed Reality (VR + AR)",
+            "High-Resolution Display",
+            "Snapdragon XR Processor",
+            "Wireless Freedom",
+            "Advanced Hand Tracking"
         ],
-        description: "Turn up the volume anywhere with Boom Speaker. Designed for music lovers, it delivers rich bass, crisp highs, and all-day battery life perfect for parties, outdoor adventures, or relaxing at home."
-
-    }, 
+        description: "Step into the future with Meta Quest 3s. Experience immersive virtual worlds, interact with digital objects in your real space, and enjoy powerful performance-all without cables. Perfect for gaming, fitness, and entertainment."
+    },
     {
         id: 7,
         name: "AirBeat Earbuds",
@@ -127,7 +127,7 @@ const PRODUCTS = [
         id: 9,
         name: "Pro Game M2",
         price: 12000,
-        category: "PC",
+        category: "monitor",
         image: "img/computer Monitor.png",
         stock: 12,
         rating: 4.7,
@@ -145,7 +145,7 @@ const PRODUCTS = [
         id: 10,
         name: "Game Series 1",
         price: 10000,
-        category: "CPU", 
+        category: "game", 
         image: "img/gaming pc.png",
         stock: 9,
         rating: 4.8,
@@ -159,24 +159,53 @@ const PRODUCTS = [
         ],
         description: "Game Series 1 is designed for gamers who want powerful performance without compromise. Enjoy fast load times, smooth gameplay, and reliable power for both gaming and productivity."
     },
-    {
-        id: 6,
-        name: "Meta Quest 3S",
-        price: 6500,
-        category: "VR",
-        image: "img/meta quest 3s.png",
-        stock: 14,
-        rating: 4.7,
-        overview: "Next-gen mixed reality headset for immersive gaming and experiences.",
+     { 
+        id: 11,
+        name: "Boom Speaker",
+        price: 25000,
+        category: "audio",
+        image: "img/speaker.png",
+        stock: 15,
+        rating: 4.6,
+        overview: "Powerful wireless speaker with deep bass and crystal clear sound.",
         features: [
-            "Mixed Reality (VR + AR)",
-            "High-Resolution Display",
-            "Snapdragon XR Processor",
-            "Wireless Freedom",
-            "Advanced Hand Tracking"
+            "Bluetooth 5.0",
+            "360° Surround Sound",
+            "12-Hour Battery Life",
+            "Portable Design"
         ],
-        description: "Step into the future with Meta Quest 3s. Experience immersive virtual worlds, interact with digital objects in your real space, and enjoy powerful performance-all without cables. Perfect for gaming, fitness, and entertainment."
+        description: "Turn up the volume anywhere with Boom Speaker. Designed for music lovers, it delivers rich bass, crisp highs, and all-day battery life perfect for parties, outdoor adventures, or relaxing at home."
+
+    }, 
+    {
+        id: 12,
+        name: "Smart TV",
+        price: 180000,
+        image: "img/smart tv.png",
+        category: "home_appliance",
+        stock: 8,
+        rating: 4.8,
+        overview: "Ultra HD 75-inch Smart TV with streaming apps and vivid colors."
+    },
+
+    {
+        id: 13,
+        name: "ProShot DSLR Camera",
+        price: 9500,
+        image: "img/camera.png",
+        category: "camera",
+        stock: 6,
+        rating: 4.5,
+        overview: "High performance DSLR camera with advanced lens and crisp image quality."
+    },
+    {
+        id: 14,
+        name: "Pocket SSD 1TB",
+        price: 2500,
+        image: "img/portable hardware.png",
+        category: "accessory",
+        stock: 15,
+        rating: 4.6,
+        overview: "Compact portable SSD with fast transfer speeds and durable design."
     }
-
-
 ];
