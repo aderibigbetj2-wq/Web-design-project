@@ -203,9 +203,26 @@ const PRODUCTS = [
         name: "Pocket SSD 1TB",
         price: 2500,
         image: "img/portable hardware.png",
-        category: "accessory",
+        category: "portable hardware",
         stock: 15,
         rating: 4.6,
         overview: "Compact portable SSD with fast transfer speeds and durable design."
-    }
+    },
+    {
+        id: 15,
+        name: "XGame Console",
+        price: 7000,
+        category: "game",
+        image: "img/Xgame.png",
+        stock: 20,
+        rating: 4.7,
+        overview: "immersive action packed gaming console with stunning visuals and performance.",
+        features: [
+            "4k Ultra HD Gaming",
+            "Fast SSD Storage",
+            "Wireless Contrillers",
+            "Online Multiplayer Support"
+        ],
+        description: "Experience next level gaming with XGame console. Designed for speed, power, and immersive gameplay, it delivers smooth performance, stunning graphics, and endless entertainment."
+    }   
 ];

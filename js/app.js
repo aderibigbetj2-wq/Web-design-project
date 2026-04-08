@@ -1,6 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const CART_KEY = "techifyCart";
+    const WISHLIST_KEY = "techifyWishlist";
+    let wishlist = JSON.parse(localStorage.getItem(WISHLIST_KEY)) || [];
+
+    function saveWishlist() {
+        localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+    }
+
+    function toggleWishlist(product) {
+        const exists = wishlist.find(i => i.id === product.id);
+
+        if (exists) {
+            wishlist = wishlist.filter(i => i.id !== product.id);
+            showToast("Removed from wishlist ❌");
+        } else {
+            wishlist.push(productSection);
+            showToast("Added to wishlist ❤️");
+        }
+
+        saveWishlist();
+        renderWishlistIcons();
+    }
+
+
     let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
 
     const qs = s => document.querySelector(s);
@@ -34,6 +57,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     }
+
+    const searchInput = qs("#search");
+    const searchResults = qs("#searchResults");
+
+    if (searchInput && searchResults) { 
+
+    searchInput?.addEventListener("input", () => {
+        const value = searchInput.value.toLowerCase();
+
+        if (!value) {
+            searchResults.style.display = "none";
+            return;
+        }
+
+        const matches = PRODUCTS.filter(p =>
+            p.name.toLowerCase().includes(value)
+        );
+
+        searchResults.innerHTML = matches.map(p => `
+            <div class="search-item" data-id="${p.id}">
+                 ${p.name}
+            </div>
+            `).join("");
+
+            searchResults.style.display = "block";
+
+            qsa(".search-item").forEach(item => {
+                item.onclick = () => {
+                    window.location.href = `product.html?id=${item.dataset.id}`;
+                };
+            });
+         });  
+
+         document.addEventListener("click", (e) => {
+            if (!e.target.closest(".search-container")) {
+                searchResults.style.display = "none";
+            }
+         });
+       }
     
     /* TOAST */
    function showToast(message) {
@@ -204,7 +266,7 @@ qsa("#sideCartItems .remove").forEach(b =>
 
                   <div class="rating">
                     ${"★".repeat(Math.floor(p.rating || 4))}
-                    <span>${p.rating || 4}.0</spam>
+                    <span>${p.rating || 4}.0</span>
                   </div>
 
                   <p class="price">${p.price} kr</p>
@@ -492,6 +554,15 @@ track.addEventListener("mouseleave", startAutoSlide);
     }
  })
 });
+
+
+
+
+      
+
+
+          
+
 
 
 
