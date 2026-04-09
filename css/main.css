@@ -1017,6 +1017,51 @@ body{
   margin-top: 1.5rem;
 }
 
+/* PROMO */
+.promo {
+  background: #111;
+  color: #fff;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.promo_viewport {
+  overflow: hidden;
+}
+
+.promo_track {
+  display: flex;
+  gap: 3rem;
+  padding: 0.75rem 0;
+  list-style: none;
+  margin: 0;
+
+  width: max-content;
+  animation: promo-scroll 18s linear infinite;
+}
+
+.promo_track li {
+  white-space: nowrap;
+  opacity: 0.85;
+  letter-spacing: 0.4px;
+}
+
+/* INFINITE SCROLL */
+@keyframes promo-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
+
+.promo:hover .promo_track {
+  animation-play-state: paused;
+}
+
+
+
 
 
 

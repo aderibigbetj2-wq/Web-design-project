@@ -379,6 +379,17 @@ qsa("#sideCartItems .remove").forEach(b =>
         });
     });
 
+    const clearBtn = document.querySelector(".clear-filters");
+
+    clearBtn?.addEventListener("click", () => {
+
+        document.querySelectorAll(".filters input[type='checkbox']")
+              .forEach(input => input.checked = false);
+
+        document.querySelectorAll(".product-card")
+            .forEach(card => card.style.display = "flex");
+    });
+
     /* SLIDER */
     const track = document.querySelector('.slider-track');
     const nextBtn = document.querySelector('.next');
